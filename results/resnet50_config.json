@@ -1,0 +1,12 @@
+{
+    "data_path": "./data/raw-img",
+    "epochs": 15,
+    "batch_size": 32,
+    "lr": 0.001,
+    "models": [
+        "resnet50"
+    ],
+    "use_checkpointing": true,
+    "freeze": false,
+    "current_model_architecture": "resnet50"
+}

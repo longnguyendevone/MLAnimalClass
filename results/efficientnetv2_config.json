@@ -1,0 +1,12 @@
+{
+    "data_path": "./data/raw-img",
+    "epochs": 30,
+    "batch_size": 32,
+    "lr": 0.001,
+    "models": [
+        "efficientnetv2"
+    ],
+    "use_checkpointing": true,
+    "freeze": false,
+    "current_model_architecture": "efficientnetv2"
+}

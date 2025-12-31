@@ -1,0 +1,12 @@
+{
+    "data_path": "./data/raw-img",
+    "epochs": 30,
+    "batch_size": 32,
+    "lr": 0.0005,
+    "models": [
+        "deit"
+    ],
+    "use_checkpointing": true,
+    "freeze": false,
+    "current_model_architecture": "deit"
+}

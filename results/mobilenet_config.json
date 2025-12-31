@@ -1,0 +1,12 @@
+{
+    "data_path": "./data/raw-img",
+    "epochs": 10,
+    "batch_size": 64,
+    "lr": 0.001,
+    "models": [
+        "mobilenet"
+    ],
+    "use_checkpointing": false,
+    "freeze": false,
+    "current_model_architecture": "mobilenet"
+}
