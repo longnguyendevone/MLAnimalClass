@@ -4,9 +4,7 @@ import torch.utils.checkpoint as checkpoint
 import timm
 import torchvision.models as models
 
-# ==========================================
 #  OPTIMIZED CUSTOM CNN (DSC + Residuals)
-# ==========================================
 class DSCBlock(nn.Module):
     """
     Depthwise Separable Convolution with Residual Connection.
@@ -82,9 +80,7 @@ class CustomCNN(nn.Module):
         return x
 
 
-# ==========================================
-#  OPTIMIZED TRANSFORMER (Pre-Norm + GELU)
-# ==========================================
+#  CUSTOM TRANSFORMER (Pre-Norm + GELU)
 class CustomTransformer(nn.Module):
     def __init__(self, num_classes=10, img_size=224, patch_size=16, 
                  embed_dim=256, num_heads=4, num_layers=6, dropout=0.1, use_checkpointing=False):
@@ -159,16 +155,14 @@ class CustomTransformer(nn.Module):
         return self.head(cls_out)
 
 
-# ==========================================
-#  VGG & TIMM FACTORY (Unchanged API)
-# ==========================================
+#  VGG & TIMM MODELS
 def build_optimized_vgg(model_name, num_classes, pretrained=True):
     if model_name == "vgg16":
         model = models.vgg16(weights='DEFAULT' if pretrained else None)
     elif model_name == "vgg19":
         model = models.vgg19(weights='DEFAULT' if pretrained else None)
     
-    # Lightweight Head Optimization (saves ~400MB VRAM)
+    # Lightweight Head Optimization (for low VRAM)
     model.classifier = nn.Sequential(
         nn.Linear(512 * 7 * 7, 512),
         nn.ReLU(True),
