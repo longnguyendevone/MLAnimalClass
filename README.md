@@ -1,3 +1,17 @@
+# About this project
+This deep learning project evaluates and compares the performance of various architectures for multi-class image classification. The models classify images into 10 distinct animal species using the Animals-10 dataset. The dataset utilizes approximately 28,000 images split into an 80/20 ratio for training and validation. The implementation heavily focuses on hardware optimization for low-end devices. 
+Techniques like Automatic Mixed Precision (AMP) and Gradient Checkpointing are used to ensure efficient training on a 6GB VRAM GPU. 
+A Python-based graphical user interface (GUI) built with Gradio is included for real-time user interaction and inference.
+# Model Architectures
+
+
+The repository includes from-scratch implementations of a lightweight Custom Convolutional Neural Network (CNN) and a Custom Vision Transformer (ViT).
+The project also features pre-trained models using transfer learning.
+
+The supported pre-trained architectures include ResNet50, EfficientNetV2, MobileNetV3, DeiT, and VGG16.
+
+# How to setup
+
 1. Open Anaconda Prompt:
 
 conda create --name animals10_env python=3.9
@@ -32,6 +46,6 @@ ConvNext and deit_small are not working.
    
     deit: python main.py --models deit --epochs 30 --batch_size 32 --lr 0.0005
    
-5. To run GUI:
+4. To run GUI:
 
 python app.py
